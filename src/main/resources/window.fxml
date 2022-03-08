@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox fx:id="rootElement" alignment="CENTER" xmlns:fx="http://javafx.com/fxml" fx:controller="ru.geekbrains.cloudAgent.client.Controller">
+    <MenuBar>
+        <Menu text="File">
+            <MenuItem text="Exit" onAction="#logout"></MenuItem>
+        </Menu>
+        <Menu text="View">
+            <MenuItem text="Server" onAction="#showOnServerFiles"></MenuItem>
+            <MenuItem text="Client" onAction="#showOnClientFiles"></MenuItem>
+        </Menu>
+    </MenuBar>
+    <HBox fx:id="loginPanel">
+        <TextField fx:id="loginField" promptText="Введите имя пользователя" HBox.hgrow="ALWAYS"/>
+        <PasswordField fx:id="passwordField" promptText="Введите пароль" HBox.hgrow="ALWAYS"/>
+        <Button onAction="#login" text="Войти"/>
+    </HBox>
+
+    <HBox fx:id="filePanel">
+        <TextField fx:id="filenameField" focusTraversable="false" editable="false" promptText="Укажите файл"
+                   HBox.hgrow="ALWAYS"/>
+        <Button fx:id="uploadBtn" mnemonicParsing="false" onAction="#uploadFile" text="Отправить"/>
+        <Button fx:id="downloadBtn" onAction="#downloadFile" text="Скачать"/>
+    </HBox>
+    <ListView fx:id="filesListPanel" VBox.vgrow="ALWAYS" maxWidth="Infinity"/>
+    <HBox fx:id="btnBar" spacing="5">
+        <Button text="Server" fx:id="serverViewBtn" onAction="#showOnServerFiles"  HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+        <Button text="Client" fx:id="clientViewBtn"  onAction="#showOnClientFiles"  HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+        <Button text="Выйти" fx:id="exitBtn"  onAction="#logout"  HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+        <padding>
+            <Insets bottom="5" top="5" right="5" left="5"/>
+        </padding>
+    </HBox>
+</VBox>
